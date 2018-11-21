@@ -1,5 +1,5 @@
 # emotiQuote 
 
 ## To Open 
-clone repo 
-npn init
+- clone repo 
+- npn init
