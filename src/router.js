@@ -16,7 +16,7 @@ const router = (request, response) => {
   const extension = url.split('.')[1];
 
   if(url === '/') {
-    const filePath = path.join(__dirname, '..', 'public', 'index.html');
+    const filePath = path.join(__dirname, '../', 'public', 'index.html');
     fs.readFile(filePath, (error, file) => {
       if(error) {
         console.log(error)
