@@ -1,5 +1,5 @@
 // output JSON and do DOM stuff here
-(function() {
+function() {
   const handleError = error => {
     const h2 = document.createElement("h2");
     h2.textContent = "Server HandleError";
@@ -20,4 +20,4 @@
       renderData(response);
     }
   });
-})();
+};
