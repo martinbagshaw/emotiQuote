@@ -1,60 +1,27 @@
-const fs = require('fs');
-const path = require('path');
-// const port = 5000;
+const handler = require('./handler.js');
+const path = require("path");
+const filePath = path.join(__dirname, "..", "public", "index.html");
 
-const extensionType = {
-  html: 'text/html',
-  css: 'text/css',
-  js: 'application/javascript',
-  ico: 'image/x-ico',
-  jpg: 'image/jpeg',
-  png: 'image/png'
-};
+
 
 const router = (request, response) => {
   const url = request.url;
-  const extension = url.split('.')[1];
-
-  if(url === '/') {
-    const filePath = path.join(__dirname, '../', 'public', 'index.html');
-    fs.readFile(filePath, (error, file) => {
-      if(error) {
-        console.log(error)
-        response.writeHead(500, {'Content-Type':'text/html'})
-        response.end('this is an error');
-        return;
-      } else {
-        response.writeHead(200, {'Content-Type':'text/html'})
-        response.end(file);
-      }
-    });
-  } else if (url !== '/') {
-    // handeling generic files
-    const filePath = path.join(__dirname, '..', 'public', url);
-    fs.readFile(filePath, (error, file) => {
-      if(error) {
-        console.log(error)
-        response.writeHead(500, {'Content-Type':'text/html'})
-        response.end('this is an error');
-        return;
-      } else {
-        response.writeHead(200, {'Content-Type':`${extensionType[extension]}`});
-        response.end(file);
-      }
-    });
+  const jsonPath = path.join(__dirname, "..", url);
+  if (url === '/'){
+    handler.homeHandler(request, response);
   }
-  //else {
-    // handeling errors
-  //}
+  else if(filePath.indexOf('public') !== -1){
+    handler.publicHandler(request, response, url);
+  }
 
-}
-
-
-
-
-
-
-
-
+  else if(jsonPath.indexOf('data') !== -1){
+    handler.jsonHandler(request, response, url);
+  }
+  else{
+    response.writeHead(404, {"Content-Type" : "text/html"});
+    response.end('<h1>file not found </h1>');
+  }
+};
 
 module.exports = router;
+//
