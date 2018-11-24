@@ -1,38 +1,42 @@
 const fs = require("fs");
 const path = require("path");
-const data = require("./data/sample.json");
+const data = require("../data/sample.json");
 // console.log(data);
-const homeHandler = (request, response) => {
-  const url = request.url;
 
-  // if (url === "/") {
+
+
+// handle the home page (loading index.html)
+const homeHandler = (request, response) => {
+  // const url = request.url;
   const filePath = path.join(__dirname, "..", "public", "index.html");
   fs.readFile(filePath, (error, file) => {
     if (error) {
       console.log(error);
-      response.writeHead(500, { "Content-Type": "text/html" });
+      response.writeHead(500, "Content-Type: text/html");
       response.end("this is an error");
-      return;
     } else {
-      response.writeHead(200, { "Content-Type": "text/html" });
+      response.writeHead(200, "Content-Type: text/html");
       response.end(file);
     }
   });
-  // }
 };
 
-const publicHandler = (request, response) => {
-  const url = request.url;
 
+
+
+// handle all files
+const publicHandler = (request, response) => {
+
+  const url = request.url;
+  
   const extensionType = {
     html: "text/html",
     css: "text/css",
     js: "application/javascript",
-    // ico: "image/x-ico",
+    ico: "image/x-ico",
     jpg: "image/jpeg",
     png: "image/png"
   };
-  // handeling generic files
   const extension = url.split(".")[1];
   const filePath = path.join(__dirname, "..", "public", url);
 
@@ -41,7 +45,6 @@ const publicHandler = (request, response) => {
       console.log(error);
       response.writeHead(500, { "Content-Type": "text/html" });
       response.end("this is an error");
-      return;
     } else {
       response.writeHead(200, {
         "Content-Type": `${extensionType[extension]}`
@@ -51,9 +54,16 @@ const publicHandler = (request, response) => {
   });
 };
 
+
+
+
+// handle json endpoint
 const jsonHandler = (request, response) => {
-  const url = request.url;
-  const filePath = path.join(__dirname, "data", "sample.json");
+  // const url = request.url;
+  // console.log(__dirname);
+
+
+  const filePath = path.join(__dirname, "../", "data", "sample.json");
   fs.readFile(filePath, (error, file) => {
     if (error) {
       console.log("json error");
@@ -65,6 +75,9 @@ const jsonHandler = (request, response) => {
     }
   });
 };
+
+
+
 
 module.exports = {
   homeHandler,

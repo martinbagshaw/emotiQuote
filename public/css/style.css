@@ -1,4 +1,5 @@
 /* background gradients */
+/* css colour variables attached to the root element (html) */
 :root {
   --blue-dark: #1967d2;
   --blue-light: #119da4;
@@ -8,11 +9,13 @@
   --green-light: #4d9f0c;
   --yellow-dark: #eaa000;
   --yellow-light: #ffc914;
+  --blue-bg: #0c3d4f;
+  --blue-fg: #e0ffff;
 }
 
 body {
   background-color: #0c3d4f;
-  color: #f4feff;
+  color: #e0ffff;
   height : 100vh;
   transition : all ease-in-out 2s;
   font-size: 16px / 1em;
@@ -24,6 +27,7 @@ body {
 /* radial gradient = middle, outside */
 .bg-blue {
   background: radial-gradient(var(--blue-light), var(--blue-dark));
+  transition : all ease-in-out 4s;
 }
 .bg-red {
   background: radial-gradient(var(--red-light), var(--red-dark));
@@ -38,8 +42,8 @@ body {
 .bg-yellow h1,
 .bg-yellow h2,
 .bg-yellow p,
-.bg-yellow .input,
-.bg-yellow .text, {
+.bg-yellow .button-input,
+.bg-yellow .text-input, {
   color : black;
 }
 
@@ -50,7 +54,7 @@ h1 {
   font-size: 3rem;
   font-weight: 600;
   line-height: 1.6;
-  color: #f4feff;
+  color: #e0ffff;
 }
 
 h2 {
@@ -62,7 +66,7 @@ h2 {
 
 a {
   text-decoration: none;
-  color: #f4feff;
+  color: #e0ffff;
 }
 
 .hidden {
@@ -109,15 +113,23 @@ header h1 {
 } */
 
 
+form {
+  display: flex;
+  align-items: flex-start;
+}
+.search-container {
+  width: 100%;
+}
 
 /* submit button */
 .button-input {
-  margin-top : 1.5rem;
+  font-family: 'Kalam', cursive;
+  font-size: 1.5rem;
+  margin-left : 1.5rem;
   padding: 1rem;
   box-sizing: border-box;
-  font-size: 1.25rem;
   color: #1a3454;
-  background-color: #E0FFFF;
+  background-color: #e0ffff;
   border: 0;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -126,7 +138,7 @@ header h1 {
 
 .button-input:hover,
 .button-input:focus {
-  background: #E0FFFF;
+  background-color: rgb(152, 200, 200);
   color: #1a3454;
 }
 
@@ -135,14 +147,14 @@ header h1 {
 
 /* text input */
 .text-input {
-  font-family: "Signika", Helvetica, Arial, sans-serif;
-  font-size: 1.25rem;
+  font-family: 'Kalam', cursive;
+  font-size: 1.5rem;
   width: 100%;
   display: block;
-  padding: 0.9rem 0.5rem;
+  padding: 1rem 0.5rem;
   box-sizing: border-box;
-  border-radius: 0.25rem;
-  border: 1px solid grey;
+  border-radius: 0.5rem;
+  border: 1px solid #e0ffff;
 }
 .text-input:focus,
 .text-input:active {
@@ -160,3 +172,43 @@ header h1 {
   padding: 0.5rem;
   box-sizing: border-box;
 }
+
+
+
+/* search-suggestions */
+.search-suggestions {
+  margin-top: 1px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.search-suggestions li {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0.5rem;
+  box-sizing: border-box;
+  font-size: 1.5rem;
+  background-color: #e0ffff;
+  color: #1a3454;
+  border: 1px solid #1a3454;
+  cursor: pointer;
+}
+.search-suggestions li:hover,
+.search-suggestions li:focus {
+  background-color: rgb(152, 200, 200);
+}
+.quote-meta {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+.chevron {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+}
+
+
+/* no results */
+.search-suggestions li.no-results {
+  background-color: var(--red-dark);
+  color: white;
+}
+

@@ -5,7 +5,7 @@
   <title>emotiQuote</title>
   <meta name="description" content="get quotes to correspond to your emotion">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link rel="shortcut icon" type="image/x-icon" href="#"/> -->
+  <link rel="shortcut icon" type="image/x-ico" href="img/favicon.ico"/>
   <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -20,10 +20,15 @@
       <div id="data"></div>
 
       <form class="search-form" action="index.html" method="post">
-        <label for="search"></label>
-        <input id="search" class="text-input" type="text" name="search" value="" placeholder= "What's on your mind?">
-        <button class="button-input" type="button" name="submit">Submit</button>
+        <div class="search-container">
+          <label for="search"></label>
+          <input id="search" class="text-input" type="text" name="search" value="" placeholder= "What is your emotional state?">
+          <ul class="search-suggestions" id="suggestions"></ul>
+        </div>
+        <input class="button-input" type="button" name="submit" value="Search"/>
       </form>
+
+      
     </section>
   </main>
   <script type="text/javascript" src="./request.js"></script>

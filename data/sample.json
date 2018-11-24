@@ -1,0 +1,56 @@
+[
+        {
+            "Quote": "Challenges are what make life interesting and overcoming them is what makes life meaningful.",
+            "Emotion": "Stress",
+            "Theme": "Challenge",
+            "Author": "Joshua J. Marine"
+        },
+        {
+            "Quote": "When one door of happiness closes, another opens; but often we look so long at the closed door that we do not see the one which has been opened for us.",
+            "Emotion": "Happiness",
+            "Theme": "Happiness",
+            "Author": "Helen Keller"
+        },
+        {
+            "Quote": "Get busy living or get busy dying.",
+            "Emotion": "Motivated",
+            "Theme": "Life",
+            "Author": "Stephen King"
+        },
+        {
+            "Quote": "The first step toward success is taken when you refuse to be a captive of the environment in which you first find yourself.",
+            "Emotion": "Motivated",
+            "Theme": "Success",
+            "Author": "Mark Caine"
+        },
+        {
+            "Quote": "Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do.",
+            "Emotion": "Sad",
+            "Theme": "Disapointed",
+            "Author": "Mark Twain"
+        },
+        {
+            "Quote": "When I dare to be powerful – to use my strength in the service of my vision, then it becomes less and less important whether I am afraid.",
+            "Emotion": "Motivated",
+            "Theme": "Power",
+            "Author": "Audre Lorde"
+        },
+        {
+            "Quote": "Great minds discuss ideas; average minds discuss events; small minds discuss people.",
+            "Emotion": "Motivated",
+            "Theme": "Inspiration",
+            "Author": "Eleanor Roosevelt"
+        },
+        {
+            "Quote": "Those who dare to fail miserably can achieve greatly.",
+            "Emotion": "Sad",
+            "Theme": "Failure",
+            "Author": "John F. Kennedy"
+        },
+        {
+            "Quote": "“I’m a success today because I had a friend who believed in me and I didn’t have the heart to let him down.",
+            "Emotion": "Happiness",
+            "Theme": "Friendship",
+            "Author": "Abraham Lincoln"
+        }
+    ]
