@@ -10,6 +10,7 @@ A collaboration with [HStewart23](https://github.com/HStewart23), [Zurda](https:
 - ```npn init``` in the folder to install dependencies
 - ```npm run dev``` to run the project
 - hosted on port 5000 at ```http://localhost:5000/```
+- alternatively, [view the hosted version on Heroku](https://emotiquote.herokuapp.com/)
 
 ### Dependencies:
 - nodemon
