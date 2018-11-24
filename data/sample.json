@@ -237,5 +237,40 @@
             "Quote": "Just don’t give up trying to do what you really want to do. Where there is love and inspiration, I don’t think you can go wrong.",
             "Emotion": "Passionate",
             "Author": "Ella Fitzgerald"
+        },
+        {
+            "Quote": "Bitterness is like cancer. It eats upon the host. But anger is like fire. It burns it all clean.",
+            "Emotion": "Angry",
+            "Author": "Maya Angelou"
+        },
+        {
+            "Quote": "Speak when you are angry and you will make the best speech you will ever regret.",
+            "Emotion": "Angry",
+            "Author": "Ambrose Bierce"
+        },
+        {
+            "Quote": "Anger is an acid that can do more harm to the vessel in which it is stored than to anything on which it is poured.",
+            "Emotion": "Angry",
+            "Author": "Mark Twain"
+        },
+        {
+            "Quote": "Usually when people are sad, they don't do anything. They just cry over their condition. But when they get angry, they bring about a change.",
+            "Emotion": "Angry",
+            "Author": "Malcolm X"
+        },
+        {
+            "Quote": "Relaxation comes from letting go of tense thoughts.",
+            "Emotion": "Calm",
+            "Author": "Frances Wilshire"
+        },
+        {
+            "Quote": "Do not learn how to react. Learn how to respond.",
+            "Emotion": "Calm",
+            "Author": "Buddha"
+        },
+        {
+            "Quote": "The ability to stay calm and focused in the midst of change is what distinguishes great leaders from those just collecting a paycheck.",
+            "Emotion": "Calm",
+            "Author": "Todd Stocker"
         }
     ]

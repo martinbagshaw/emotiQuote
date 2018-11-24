@@ -227,9 +227,11 @@
         Passionate : "bg-red",
         Stressed : "bg-red",
         Love : "bg-red",
+        Angry : "bg-red",
 
         Sad : "bg-blue",
         Depressed : "bg-blue",
+        Calm : "bg-blue",
         
         Happy : "bg-yellow",
         Hopeful : "bg-yellow",
