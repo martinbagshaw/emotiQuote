@@ -4,7 +4,6 @@
 
     // error function
     const handleError = () => {
-        console.log(error);
         const h2 = document.createElement("h2");
         h2.textContent = "Server HandleError";
         document.querySelector("#error").appendChild(h2);
@@ -112,8 +111,8 @@
         
         // handle back button click
         let backBtn = false;
-        if (val.attributes !== undefined) {
-            if (val.attributes[0].nodeValue === 'chevron-left') backBtn = true;
+        if (val.attributes !== undefined && val.attributes[1]!== undefined) {
+            if (val.attributes[1].nodeValue.includes('chevron-left')) backBtn = true;
         }
         if (typeof val !== 'string' && backBtn === false) return false;
         // if click, val = DOM element
@@ -140,7 +139,7 @@
                     <li class="searched">${quote[0]}
                     <div class="quote-meta">
                         <span class="quote-occurences">(${quote[1]} Quote${quote[1]>1 ? 's':''})</span>
-                        <span class="chevron"> > </span>
+                        <button aria-label="View Quotes" class="quote-button chevron"> > </button>
                     </div>
                     </li>
                 `;
@@ -189,7 +188,7 @@
             let html = selectedQuotes.map(quote => {
                 return `
                     <li class="found-quote">
-                    <div class="chevron-left"> < </div>
+                    <button aria-label="Back to Search" class="quote-button chevron-left"> < </button>
                     <div class="quote-content">${quote.Quote}</div>
                     <div class="quote-author"> - ${quote.Author}</div>
                     </li>
@@ -237,36 +236,22 @@
 
     // classes - toggle with transition
     const bgClasses = {
+        
+        Passionate : "bg-red",
+        Stressed : "bg-red",
+        Love : "bg-red",
+
         Sad : "bg-blue",
-        Passion : "bg-red",
+        Depressed : "bg-blue",
+        
+        Happy : "bg-yellow",
+        Hopeful : "bg-yellow",
+        Joyful : "bg-yellow",
+        Anxious : "bg-yellow",
+
         Envious : "bg-green",
-        Happiness : "bg-yellow",
-        Stress : "bg-red",
         Motivated : "bg-green"
     };
-    
-    // const selectMatch = e => {
-    //     console.log(e.target.previousElementSibling.value);
-    //     // take textContent of e.target.previousElementSibling
-    //     // get val from object
-    //     // get val.emotion
-    //     // bgClasses[val.emotion]
-    //     const sad = `${bgClasses.sad}`;
-    //     document.querySelector('body').classList.toggle(sad);
-    // }
-
-    // const buttonInput = document.querySelector('.button-input');
-    // may as well make this non-clickable (+tell the user this)
-    // buttonInput.addEventListener('click', selectMatch);
-
-    
-    
-    
-    // suggestions list
-    // const suggestions = document.querySelector('#suggestions');
-    // suggestions.addEventListener('click', showQuotes);
-
-    
 
 
 })();

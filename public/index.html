@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <title>emotiQuote</title>
-  <meta name="description" content="get quotes to correspond to your emotion">
+  <meta name="description" content="get quotes relating to your emotional state">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#e0ffff">
+  <meta name="theme-color" content="#19c0fb">
   <link rel="shortcut icon" type="image/x-ico" href="img/favicon.ico"/>
   <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/reset.css">
@@ -14,21 +14,20 @@
 <body class="bg-default">
   <header>
     <h1>emotiQuote</h1>
+    <p>quotes relating to your emotional state</p>
   </header>
   <main>
     <section class="main">
       <div id="error"></div>
-      <div id="data"></div>
 
       <form class="search-form" action="index.html" method="post">
         <div class="search-container">
-          <label for="search"></label>
-          <input id="search" class="text-input" type="text" name="search" value="" placeholder= "What is your emotional state?">
+          <label for="search" class="hidden">Search for Quotes to match your emotion</label>
+          <input id="search" class="text-input" type="text" name="search" value="" placeholder= "What is your emotional state?" autocomplete="off">
           <ul class="search-suggestions" id="suggestions"></ul>
         </div>
         <input class="button-input" type="button" name="submit" value="Search"/>
       </form>
-
       
     </section>
   </main>

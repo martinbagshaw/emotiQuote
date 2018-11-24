@@ -10,16 +10,18 @@
   --yellow-dark: #eaa000;
   --yellow-light: #ffc914;
   --blue-bg: #0c3d4f;
-  --blue-mid: #092d3b;
+  --blue-mid: #025a7a;
+  --blue-sm: #0392c5;
+  --blue-hover: #19c0fb;
   --blue-fg: #e0ffff;
 }
 
 body {
-  background-color: #0c3d4f;
-  color: #e0ffff;
+  background-color: var(--blue-bg);
+  color: var(--blue-fg);
   height : 100vh;
   /* transition :all ease-in-out 2s; - just transitions text colour */
-  font-size: 16px / 1em;
+  font-size: 16px/1em;
   font-family: 'Kalam', cursive;
   font-weight: 400;
   line-height: 1.4;
@@ -36,21 +38,17 @@ body {
 }
 .bg-red {
   background: radial-gradient(var(--red-light), var(--red-dark));
+  color: white;
 }
 .bg-green {
   background: radial-gradient(var(--green-light), var(--green-dark));
+  color: white;
 }
 .bg-yellow {
   background: radial-gradient(var(--yellow-light), var(--yellow-dark));
-  color : black;
+  color: black;
 }
-.bg-yellow h1,
-.bg-yellow h2,
-.bg-yellow p,
-.bg-yellow .button-input,
-.bg-yellow .text-input, {
-  color : black;
-}
+
 
 
 
@@ -62,20 +60,24 @@ h1 {
 }
 
 h2 {
-    font-size : 1.5rem;
-    font-weight : 600;
-    line-height : 1.5;
+  font-size : 2.35rem;
+  font-weight : 600;
+  line-height : 1.5;
 }
 
+p {
+  font-size : 1.5rem;
+}
 
 a {
   text-decoration: none;
-  color: #e0ffff;
+  color: var(--blue-fg);
 }
 
 .hidden {
   visibility: hidden;
   height: 0;
+  display: none;
 }
 
 
@@ -91,39 +93,28 @@ section {
 }
 
 
-
-
 /* header */
 header {
-  height : 25vh;
+  height: 25vh;
   display: flex;
-  align-content: center;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
-header h1 {
-  align-self: center;
-}
 
 
 
-
-/* search form */
-/* form label {
-  font-weight: bold;
-  font-size: 1.25rem;
-  color: #fcfcfc;
-  padding: 0.5rem 0;
-  box-sizing: border-box;
-} */
-
-
-form {
+/* search-form */
+.search-form {
   display: flex;
   align-items: flex-start;
+  position: relative; 
 }
 .search-container {
   width: 100%;
 }
+
+
 
 /* submit button */
 .button-input {
@@ -132,18 +123,30 @@ form {
   margin-left : 1.5rem;
   padding: 1rem;
   box-sizing: border-box;
-  color: #1a3454;
-  background-color: #e0ffff;
   border: 0;
   border-radius: 0.5rem;
   cursor: pointer;
   transition: background-color ease-in-out 0.3s;
+  /* positioning */
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  /* colour */
+  color: var(--blue-fg);
+  background-color: var(--blue-sm);
 }
 
 .button-input:hover,
 .button-input:focus {
-  background-color: rgb(152, 200, 200);
-  color: #1a3454;
+  background-color: var(--blue-hover);
+}
+
+@media only screen and (min-width: 600px) {
+  .button-input {
+    position: relative;
+    color: var(--blue-bg);
+    background-color: var(--blue-fg);
+  }
 }
 
 
@@ -153,25 +156,29 @@ form {
 .text-input {
   font-family: 'Kalam', cursive;
   font-size: 1.5rem;
+  text-indent: 0.5rem;/* lowercase j's get cut off */
   width: 100%;
   display: block;
   padding: 1rem 0.5rem;
+  padding-right: 25%;
   box-sizing: border-box;
   border-radius: 0.5rem;
-  border: 1px solid #e0ffff;
+  border: 1px solid var(--blue-fg);
 }
 .text-input:focus,
 .text-input:active {
   border: 1px solid lightseagreen;
 }
-
-.text-input.error {
-  color: #e74e42;
+@media only screen and (min-width: 600px) {
+  .text-input {
+    padding-right: 0.5rem;
+  }
 }
+
 
 /* error message */
 .error-msg {
-  background-color: #e74e42;
+  background-color: var(--red-light);
   color: white;
   padding: 0.5rem;
   box-sizing: border-box;
@@ -187,14 +194,16 @@ form {
 .search-suggestions li {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: -1px;
   padding: 1rem;
   box-sizing: border-box;
   font-size: 1.5rem;
-  background-color: #e0ffff;
-  color: #1a3454;
-  border: 1px solid #1a3454;
+  background-color: var(--blue-fg);
+  color: var(--blue-bg);
+  border: 1px solid var(--blue-bg);
   border-radius: 0.5rem;
+  transition: background-color ease-in-out 0.3s;
   cursor: pointer;
 }
 .search-suggestions li:nth-child(1) {
@@ -202,7 +211,7 @@ form {
 }
 .search-suggestions li:hover,
 .search-suggestions li:focus {
-  background-color: rgb(152, 200, 200);
+  background-color: var(--blue-hover);
 }
 
 /* searched items */
@@ -210,19 +219,10 @@ form {
   font-weight: bold;
   font-size: 1.25rem;
 }
-.chevron {
-  font-size: 1.5rem;
-}
-
-
 
 /* found items */
-.found-quote {
-  align-items: center;
-}
 .chevron-left {
   flex: 1;
-  font-size: 1.5rem;
   text-align: center;
 }
 .quote-content {
@@ -248,3 +248,13 @@ form {
   color: white;
 }
 
+
+/* quote-button (forward/back) */
+.quote-button {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-family: 'Kalam', cursive;
+}

@@ -1,13 +1,13 @@
 [
         {
             "Quote": "Challenges are what make life interesting and overcoming them is what makes life meaningful.",
-            "Emotion": "Stress",
+            "Emotion": "Stressed",
             "Theme": "Challenge",
             "Author": "Joshua J. Marine"
         },
         {
             "Quote": "When one door of happiness closes, another opens; but often we look so long at the closed door that we do not see the one which has been opened for us.",
-            "Emotion": "Happiness",
+            "Emotion": "Happy",
             "Theme": "Happiness",
             "Author": "Helen Keller"
         },
@@ -43,14 +43,199 @@
         },
         {
             "Quote": "Those who dare to fail miserably can achieve greatly.",
-            "Emotion": "Sad",
+            "Emotion": "Motivated",
             "Theme": "Failure",
             "Author": "John F. Kennedy"
         },
         {
             "Quote": "I’m a success today because I had a friend who believed in me and I didn’t have the heart to let him down.",
-            "Emotion": "Happiness",
+            "Emotion": "Happy",
             "Theme": "Friendship",
             "Author": "Abraham Lincoln"
+        },
+        {
+            "Quote": "Life is a comedy to those who think, a tragedy to those who feel.",
+            "Emotion": "Happy",
+            "Author": "Jean Racine"
+        },
+        {
+            "Quote": "One ought to hold on to one's heart; for if one lets it go, one soon loses control of the head too.",
+            "Emotion": "Love",
+            "Author": "Friedrich Nietzsche"
+        },
+        {
+            "Quote": "It is important not to suppress your feelings altogether when you are depressed. It is equally important to avoid terrible arguments or expressions of outrage. You should steer clear of emotionally damaging behavior. People forgive, but it is best not to stir things up to the point at which forgiveness is required. When you are depressed, you need the love of other people, and yet depression fosters actions that destroy that love. Depressed people often stick pins into their own life rafts. The conscious mind can intervene. One is not helpless.",
+            "Emotion": "Depressed",
+            "Author": "Andrew Solomon"
+        },
+        {
+            "Quote": "The moment we cry in a film is not when things are sad but when they turn out to be more beautiful than we expected them to be.",
+            "Emotion": "Happy",
+            "Author": "Alain de Botton"
+        },
+        {
+            "Quote": "I don't like hope very much. In fact, I hate it. It's the crystal meth of emotions. It hooks you fast and kills you hard. It's bad news. The worst. It's sharp sticks and cherry bombs. When hope shows up, it's only a matter of time until someone gets hurt..",
+            "Emotion": "Hopeful",
+            "Author": "Jennifer Donnelly"
+        },
+        {
+            "Quote": "I think there is something beautiful in reveling in sadness. The proof is how beautiful sad songs can be. So I don’t think being sad is to be avoided. It’s apathy and boredom you want to avoid. But feeling anything is good, I think. Maybe that’s sadistic of me.",
+            "Emotion": "Sad",
+            "Author": "Joseph Gordon-Levitt"
+        },
+        {
+            "Quote": "Joy is but the sign that creative emotion is fulfilling its purpose.",
+            "Emotion": "Joyful",
+            "Author": "Charles Du Bos"
+        },
+        {
+            "Quote": "The sun always shines above the clouds.",
+            "Emotion": "Depressed",
+            "Author": "Paul F. Davis"
+        },
+        {
+            "Quote": "True love is not a hide and seek game: in true love, both lovers seek each other.",
+            "Emotion": "Love",
+            "Author": "Michael Bassey Johnson"
+        },
+        {
+            "Quote": "Do not overrate what you have received, nor envy others. He who envies others does not obtain peace of mind.",
+            "Emotion": "Envious",
+            "Author": "Buddha"
+        },
+        {
+            "Quote": "Success makes so many people hate you. I wish it wasn't that way. It would be wonderful to enjoy success without seeing envy in the eyes of those around you",
+            "Emotion": "Envious",
+            "Author": "Marilyn Monroe"
+        },
+        {
+            "Quote": "Develop success from failures. Discouragement and failure are two of the surest stepping stones to success.",
+            "Emotion": "Motivated",
+            "Author": "Dale Carnegie"
+        },
+        {
+            "Quote": "Your time is limited, so don't waste it living someone else's life.",
+            "Emotion": "Motivated",
+            "Author": "Steve Jobs"
+        },
+        {
+            "Quote": "The key to life is accepting challenges. Once someone stops doing this, he’s dead.",
+            "Emotion": "Motivated",
+            "Author": "Bette Davis"
+        },
+        {
+            "Quote": "Perseverance is failing 19 times and succeeding the 20th.",
+            "Emotion": "Motivated",
+            "Author": "Julie Andrews"
+        },
+        {
+            "Quote": "Obstacles are those frightful things you see when you take your eyes off your goal.",
+            "Emotion": "Motivated",
+            "Author": "Henry Ford"
+        },
+        {
+            "Quote": "To achieve great things, two things are needed: a plan and not quite enough time.",
+            "Emotion": "Stressed",
+            "Author": "Leonard Bernstein"
+        },
+        {
+            "Quote": "Relax. No one else knows what they’re doing either.",
+            "Emotion": "Stressed",
+            "Author": "Ricky Gervais"
+        },
+        {
+            "Quote": "Make others laugh by laughing at yourself. This is the best way to de-stress.",
+            "Emotion": "Stressed",
+            "Author": "Tapan Ghosh"
+        },
+        {
+            "Quote": "Experiencing sadness and anger can make you feel more creative, and by being creative you can get beyond your pain or negativity.",
+            "Emotion": "Sad",
+            "Author": "Yoko Ono"
+        },
+        {
+            "Quote": "The word ‘happy’ would lose its meaning if it were not balanced by sadness.",
+            "Emotion": "Sad",
+            "Author": "Carl Jung"
+        },
+        {
+            "Quote": "Tears shed for another person are not a sign of weakness. They are a sign of a pure heart.",
+            "Emotion": "Sad",
+            "Author": "Jose N Harris"
+        },
+        {
+            "Quote": "The largest part of what we call ‘personality’ is determined by how we’ve opted to defend ourselves against anxiety and sadness.",
+            "Emotion": "Anxious",
+            "Author": "Alain de Botton"
+        },
+        {
+            "Quote": "Sadness gives depth. Happiness gives height. Sadness gives roots. Happiness gives branches. Happiness is like a tree going into the sky, and sadness is like the roots going down into the womb of the earth. Both are needed, and the higher a tree goes, the deeper it goes, simultaneously. The bigger the tree, the bigger will be its roots. In fact, it is always in proportion. That’s its balance.",
+            "Emotion": "Sad",
+            "Author": "Osho"
+        },
+        {
+            "Quote": "Man is not worried by real problems so much as by his imagined anxieties about real problems.",
+            "Emotion": "Anxious",
+            "Author": "Epictetus"
+        },
+        {
+            "Quote": "It’s OKAY to be scared. Being scared means you’re about to do something really, really brave..",
+            "Emotion": "Anxious",
+            "Author": "Mandy Hale"
+        },
+        {
+            "Quote": "Sensitive people either love deeply or they regret deeply. There really is no middle ground because they live in passionate extremes.",
+            "Emotion": "Passionate",
+            "Author": "Shannon L. Alder"
+        },
+        {
+            "Quote": "Mental pain is less dramatic than physical pain, but it is more common and also more hard to bear. The frequent attempt to conceal mental pain increases the burden: it is easier to say “My tooth is aching” than to say “My heart is broken.” ",
+            "Emotion": "Depressed",
+            "Author": "C.S. Lewis"
+        },
+        {
+            "Quote": "I don’t think of all the misery, but of the beauty that still remains.",
+            "Emotion": "Hopeful",
+            "Author": "Anne Frank"
+        },
+        {
+            "Quote": "Only in the darkness can you see the stars.",
+            "Emotion": "Hopeful",
+            "Author": "Martin Luther King Jr."
+        },
+        {
+            "Quote": "Far away there in the sunshine are my highest aspirations. I may not reach them but I can look up and see their beauty, believe in them, and try to follow them.",
+            "Emotion": "Hopeful",
+            "Author": "Louisa May Alcott"
+        },
+        {
+            "Quote": "Don't cry because it's over, smile because it happened.",
+            "Emotion": "Joyful",
+            "Author": "Dr. Seuss"
+        },
+        {
+            "Quote": "When you do things from your soul, you feel a river moving in you, a joy.",
+            "Emotion": "Joyful",
+            "Author": "Rumi"
+        },
+        {
+            "Quote": "Joy does not simply happen to us. We have to choose joy and keep choosing it every day.",
+            "Emotion": "Joyful",
+            "Author": "Henri J.M. Nouwen"
+        },
+        {
+            "Quote": "Far and away the best prize that life offers is the chance to work hard at work worth doing.",
+            "Emotion": "Passionate",
+            "Author": "Theodore Roosevelt"
+        },
+        {
+            "Quote": "There is no passion to be found playing small – in settling for a life that is less than the one you are capable of living.",
+            "Emotion": "Passionate",
+            "Author": "Nelson Mandela"
+        },
+        {
+            "Quote": "Just don’t give up trying to do what you really want to do. Where there is love and inspiration, I don’t think you can go wrong.",
+            "Emotion": "Passionate",
+            "Author": "Ella Fitzgerald"
         }
     ]
