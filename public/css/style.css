@@ -10,6 +10,7 @@
   --yellow-dark: #eaa000;
   --yellow-light: #ffc914;
   --blue-bg: #0c3d4f;
+  --blue-mid: #092d3b;
   --blue-fg: #e0ffff;
 }
 
@@ -17,17 +18,21 @@ body {
   background-color: #0c3d4f;
   color: #e0ffff;
   height : 100vh;
-  transition : all ease-in-out 2s;
+  /* transition :all ease-in-out 2s; - just transitions text colour */
   font-size: 16px / 1em;
   font-family: 'Kalam', cursive;
   font-weight: 400;
   line-height: 1.4;
 }
 
-/* radial gradient = middle, outside */
+/* radial gradient = middle, outside
+ - can't transition between gradients
+*/
+.bg-default {
+  background: radial-gradient(var(--blue-mid), var(--blue-bg));
+}
 .bg-blue {
   background: radial-gradient(var(--blue-light), var(--blue-dark));
-  transition : all ease-in-out 4s;
 }
 .bg-red {
   background: radial-gradient(var(--red-light), var(--red-dark));
@@ -54,7 +59,6 @@ h1 {
   font-size: 3rem;
   font-weight: 600;
   line-height: 1.6;
-  color: #e0ffff;
 }
 
 h2 {
@@ -177,33 +181,65 @@ form {
 
 /* search-suggestions */
 .search-suggestions {
-  margin-top: 1px;
   border-radius: 0.5rem;
   overflow: hidden;
 }
 .search-suggestions li {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 0.5rem;
+  margin-top: -1px;
+  padding: 1rem;
   box-sizing: border-box;
   font-size: 1.5rem;
   background-color: #e0ffff;
   color: #1a3454;
   border: 1px solid #1a3454;
+  border-radius: 0.5rem;
   cursor: pointer;
+}
+.search-suggestions li:nth-child(1) {
+  margin-top: 0;
 }
 .search-suggestions li:hover,
 .search-suggestions li:focus {
   background-color: rgb(152, 200, 200);
 }
+
+/* searched items */
 .quote-meta {
   font-weight: bold;
   font-size: 1.25rem;
 }
 .chevron {
-  font-family: Helvetica, Arial, sans-serif;
   font-size: 1.5rem;
 }
+
+
+
+/* found items */
+.found-quote {
+  align-items: center;
+}
+.chevron-left {
+  flex: 1;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.quote-content {
+  flex: 12;
+  padding: 1rem 1rem 0;
+  position: relative;
+}
+.quote-content:before {
+  content: "“";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 2rem;
+}
+.quote-author { flex: 3;}
+
 
 
 /* no results */

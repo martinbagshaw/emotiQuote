@@ -15,21 +15,43 @@
     /*
     - get response
     - attach event listener to input, pass in response data
-    - match input to object
+    - match input and group responses
     - output html
     */
 
 
-    // add text input event listener
+    // initial autocomplete
+    // _____________________________
+
+
+    // add event listeners (text input and item clicks)
+    // - all require response json
     const addTextInput = (response) => {
         const searchInput = document.querySelector('.text-input');
+        // displayMatches runs 2 functions to filter information before displaying
         searchInput.addEventListener(
             'input',
             e => displayMatches(e.target.value, response),
             false
         );
+        // after suggestions are shown, indivdidual quotes need to be shown on click
+        const suggestions = document.querySelector('#suggestions');
+        suggestions.addEventListener(
+            'click',
+            e => displayQuotes(e, response),
+            false
+        );
+        // back button on individual quotes - same behaviour as displayMatches
+        suggestions.addEventListener(
+            'click',
+            e => displayMatches(e.target, response),
+            false
+        );
     }
    
+
+
+
    
     // find matches
     // - will return an array of objects, or an empty array if nothing matches
@@ -47,18 +69,15 @@
             return quoteMatch.match(regex);
         });
     };
-    
 
 
-    // display matches function
-    // - group quotes by emotion
-    // - returns html to DOM
-    const displayMatches = (val, quotes) => {
 
-        const matchArray = findMatches(val, quotes);
+    // group quotes
+    // - returns quotes, grouped by emotion
+    const groupQuotes = matches => {
         
         // 1 - sort alphabetically
-        const alpha = matchArray.map(quote => quote.Emotion).sort();
+        const alpha = matches.map(quote => quote.Emotion).sort();
         
         // 2 - count occurences of quote.Emotion
         let count = [], emo = [], prev;
@@ -79,18 +98,44 @@
 
         // 3 - copy the array, don't reference
         const quotesByEmo = emo.slice();
-        // console.log(quotesByEmo);
+        return quotesByEmo;
+
+    }
+    
 
 
+    // display matches function
+    // - group quotes by emotion
+    // - returns html to DOM
+    // - also handles back button (chevron-left) click
+    const displayMatches = (val, quotes) => {
+        
+        // handle back button click
+        let backBtn = false;
+        if (val.attributes !== undefined) {
+            if (val.attributes[0].nodeValue === 'chevron-left') backBtn = true;
+        }
+        if (typeof val !== 'string' && backBtn === false) return false;
+        // if click, val = DOM element
+        // - in this case, select input.value instead
+        if (backBtn === true) {
+            val = document.querySelector('.text-input').value;
+            document.querySelector('body').className = 'bg-default';
+        }
 
 
-        // 4 - compose html
+        // 1 - run findMatches and groupQuotes
+        // - find and group quotes by emotion
+        const matchArray = findMatches(val, quotes);
+        const groupedByEmotion = groupQuotes(matchArray);
+
+        // 2 - compose html
         // val = event
         if (val !== undefined){
 
             // this changes, therefore let
             // - maybe use reduce, with (no of items) for each category
-            let html = quotesByEmo.map(quote => {
+            let html = groupedByEmotion.map(quote => {
                 return `
                     <li class="searched">${quote[0]}
                     <div class="quote-meta">
@@ -105,15 +150,64 @@
             if (html.length < 1) {
                 html = `<li class="no-results">No results found. Please try again</li>`;
             }
-            // no narrowed down matches, clear html
+            // no narrowed down matches, clear html, reset colour
             else if (matchArray.length === quotes.length) {
                 html = '';
+                document.querySelector('body').className = 'bg-default';
             }
             // add html to DOM
             suggestions.innerHTML = html;
         }
     }
+
+
+
+
+    // suggestion click
+    // _____________________________
+    const getQuotes = (e, quotes) => {
+        // get emotion from click of li.searched
+        // - e.target must search for closest parent li
+        if(e.target.closest('li.searched')!==null){
+            const emotion = e.target.closest('li.searched').childNodes[0].textContent.trim();
+            // get quotes by clicked emotion
+            return quotes.filter(quote => quote.Emotion === emotion);
+        }
+    }
+
+    // change html, add classes
+    const displayQuotes = (e, quotes) => {
+        const selectedQuotes = getQuotes(e, quotes);
+        if (e !== undefined && selectedQuotes !== undefined){
+            const emotion = selectedQuotes.find(item => item.Emotion).Emotion;
+
+            // 1- add background colour
+            document.querySelector('body').className = bgClasses[emotion];
+            // console.log(selectedQuotes);
+
+            // 2 - compose html
+            let html = selectedQuotes.map(quote => {
+                return `
+                    <li class="found-quote">
+                    <div class="chevron-left"> < </div>
+                    <div class="quote-content">${quote.Quote}</div>
+                    <div class="quote-author"> - ${quote.Author}</div>
+                    </li>
+                `;
+            }).join(''); // join array as a string
+
+            // add html to DOM
+            suggestions.innerHTML = html;
+        }
+
+    }
     
+
+
+
+
+
+
 
 
 
@@ -143,30 +237,34 @@
 
     // classes - toggle with transition
     const bgClasses = {
-        sad : "bg-blue",
-        passion: "bg-red",
-        envy: "bg-green",
-        jealous: "bg-yellow"
+        Sad : "bg-blue",
+        Passion : "bg-red",
+        Envious : "bg-green",
+        Happiness : "bg-yellow",
+        Stress : "bg-red",
+        Motivated : "bg-green"
     };
     
-    const selectMatch = e => {
-        console.log(e.target.previousElementSibling.value);
-        // take textContent of e.target.previousElementSibling
-        // get val from object
-        // get val.emotion
-        // bgClasses[val.emotion]
-        const sad = `${bgClasses.sad}`;
-        document.querySelector('body').classList.toggle(sad);
-    }
+    // const selectMatch = e => {
+    //     console.log(e.target.previousElementSibling.value);
+    //     // take textContent of e.target.previousElementSibling
+    //     // get val from object
+    //     // get val.emotion
+    //     // bgClasses[val.emotion]
+    //     const sad = `${bgClasses.sad}`;
+    //     document.querySelector('body').classList.toggle(sad);
+    // }
 
-    const buttonInput = document.querySelector('.button-input');
-    buttonInput.addEventListener('click', selectMatch);
+    // const buttonInput = document.querySelector('.button-input');
+    // may as well make this non-clickable (+tell the user this)
+    // buttonInput.addEventListener('click', selectMatch);
 
     
     
     
     // suggestions list
-    const suggestions = document.querySelector('#suggestions');
+    // const suggestions = document.querySelector('#suggestions');
+    // suggestions.addEventListener('click', showQuotes);
 
     
 
