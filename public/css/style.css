@@ -51,8 +51,6 @@ body {
 
 
 
-
-
 h1 {
   font-size: 3rem;
   font-weight: 600;
@@ -188,6 +186,7 @@ header {
 
 /* search-suggestions */
 .search-suggestions {
+  margin-top: 1rem;
   border-radius: 0.5rem;
   overflow: hidden;
 }
@@ -213,40 +212,64 @@ header {
 .search-suggestions li:focus {
   background-color: var(--blue-hover);
 }
-
-/* searched items */
 .quote-meta {
   font-weight: bold;
   font-size: 1.25rem;
 }
+/* searched items: no results */
+.search-suggestions li.no-results {
+  background-color: var(--red-dark);
+  color: white;
+}
+
+
 
 /* found items */
+.search-suggestions li.found-quote {
+  flex-direction: column;
+  align-items: flex-end;
+  cursor: default;
+}
+.search-suggestions li.found-quote:hover,
+.search-suggestions li.found-quote:focus {
+  background-color: var(--blue-fg);
+}
 .chevron-left {
   flex: 1;
   text-align: center;
+  align-self: flex-start;
 }
 .quote-content {
   flex: 12;
-  padding: 1rem 1rem 0;
+  padding: 1rem;
   position: relative;
 }
+/* quotation mark */
 .quote-content:before {
   content: "“";
   display: block;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 0.5rem;
   font-size: 2rem;
 }
 .quote-author { flex: 3;}
 
-
-
-/* no results */
-.search-suggestions li.no-results {
-  background-color: var(--red-dark);
-  color: white;
+@media only screen and (min-width: 600px) {
+  .search-suggestions li.found-quote {
+    flex-direction: row;
+    align-items: center;
+  }
+  .chevron-left {
+    align-self: auto;
+  }
+  .quote-content {
+    padding: 1rem 2rem 0;
+  }
 }
+
+
+
 
 
 /* quote-button (forward/back) */
@@ -254,7 +277,22 @@ header {
   border: 0;
   background: transparent;
   padding: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  box-sizing: border-box;
   cursor: pointer;
+  color: var(--blue-sm);
   font-size: 1.5rem;
+  line-height: 1;
   font-family: 'Kalam', cursive;
+  transition: transform ease-in-out .3s;
+}
+.quote-button.chevron:hover {
+  transform: translateX(0.5rem);
+}
+.quote-button.chevron-left {
+  width: auto;
+}
+.quote-button.chevron-left:hover {
+  transform: translateX(-0.5rem);
 }

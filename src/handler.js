@@ -1,7 +1,6 @@
 const fs = require("fs");
 const path = require("path");
 const data = require("../data/sample.json");
-// console.log(data);
 
 
 
@@ -23,12 +22,9 @@ const homeHandler = (request, response) => {
 
 
 
-
 // handle all files
 const publicHandler = (request, response) => {
-
   const url = request.url;
-  
   const extensionType = {
     html: "text/html",
     css: "text/css",
@@ -56,13 +52,8 @@ const publicHandler = (request, response) => {
 
 
 
-
 // handle json endpoint
 const jsonHandler = (request, response) => {
-  // const url = request.url;
-  // console.log(__dirname);
-
-
   const filePath = path.join(__dirname, "../", "data", "sample.json");
   fs.readFile(filePath, (error, file) => {
     if (error) {
@@ -75,8 +66,6 @@ const jsonHandler = (request, response) => {
     }
   });
 };
-
-
 
 
 module.exports = {

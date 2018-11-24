@@ -25,9 +25,9 @@
 
     // add event listeners (text input and item clicks)
     // - all require response json
-    const addTextInput = (response) => {
+    const invokeEvents = (response) => {
         const searchInput = document.querySelector('.text-input');
-        // displayMatches runs 2 functions to filter information before displaying
+        // displayMatches runs 3 functions to filter information before displaying
         searchInput.addEventListener(
             'input',
             e => displayMatches(e.target.value, response),
@@ -76,8 +76,7 @@
     const groupQuotes = matches => {
         
         // 1 - sort alphabetically
-        const alpha = matches.map(quote => quote.Emotion).sort();
-        
+        const alpha = matches.map(quote => quote.Emotion).sort(); 
         // 2 - count occurences of quote.Emotion
         let count = [], emo = [], prev;
 
@@ -94,11 +93,9 @@
             }
             prev = alpha[i];
         }
-
         // 3 - copy the array, don't reference
         const quotesByEmo = emo.slice();
         return quotesByEmo;
-
     }
     
 
@@ -188,7 +185,7 @@
             let html = selectedQuotes.map(quote => {
                 return `
                     <li class="found-quote">
-                    <button aria-label="Back to Search" class="quote-button chevron-left"> < </button>
+                    <button aria-label="Back to Search" class="quote-button chevron-left"> < back</button>
                     <div class="quote-content">${quote.Quote}</div>
                     <div class="quote-author"> - ${quote.Author}</div>
                     </li>
@@ -204,12 +201,6 @@
 
 
 
-
-
-
-
-
-
     // pass in /data endpoint - this is where the json is hosted
     // - this could be anywhere else - defined on the back end
     // - currently defined in handler.js
@@ -217,17 +208,13 @@
         if (error) {
             handleError(error);
         } else {
-            // add text input event listener
-            // - this calls findMatches
-            addTextInput(response);
+            // pass response to event listeners
+            invokeEvents(response);
         }
     });
 
 
 
-
-    
-    
     
     
     // __________________
